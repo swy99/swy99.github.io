@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sungwon Yang</title>
+<meta name="description" content="Sungwon Yang, M.S. student at KAIST working on learning-based legged locomotion and sim-to-real transfer.">
+<style>
+  :root {
+    --bg: #ffffff;
+    --fg: #1f2328;
+    --muted: #5b6570;
+    --accent: #0b5cad;
+    --rule: #e3e6ea;
+    --card: #f4f6f8;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0f1115;
+      --fg: #e6e8eb;
+      --muted: #9aa4af;
+      --accent: #6cb6ff;
+      --rule: #2a2f36;
+      --card: #171b21;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+  main { max-width: 880px; margin: 0 auto; padding: 56px 20px 64px; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .intro { display: flex; gap: 36px; align-items: flex-start; }
+  .intro-text { flex: 1; min-width: 0; }
+  h1 { font-size: 2rem; line-height: 1.2; margin: 0 0 6px; font-weight: 650; }
+  .affil { color: var(--muted); margin: 0 0 18px; }
+  .intro p { margin: 0 0 12px; }
+  .links { display: flex; flex-wrap: wrap; gap: 6px 20px; margin-top: 18px !important; font-weight: 500; }
+  .photo { width: 170px; height: auto; border-radius: 10px; flex: none; }
+
+  h2 {
+    font-size: 1.2rem;
+    margin: 52px 0 18px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .project { display: grid; grid-template-columns: 320px 1fr; gap: 24px; margin: 0 0 32px; }
+  .project.text-only { grid-template-columns: 1fr; }
+  .media {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    background: var(--card);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .media iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  .project h3 { font-size: 1.05rem; line-height: 1.4; margin: 0 0 4px; }
+  .meta { color: var(--muted); font-size: 0.92rem; margin: 0 0 8px; }
+  .project p { margin: 0 0 8px; }
+
+  ul.items { padding-left: 20px; margin: 0; }
+  ul.items li { margin-bottom: 8px; }
+  .when { color: var(--muted); }
+
+  footer { margin-top: 56px; color: var(--muted); font-size: 0.85rem; }
+
+  @media (max-width: 680px) {
+    main { padding: 32px 16px 48px; }
+    .intro { flex-direction: column-reverse; gap: 20px; }
+    .photo { width: 130px; }
+    .project { grid-template-columns: 1fr; gap: 12px; }
+  }
+</style>
+</head>
+<body>
+<main>
+
+  <header class="intro">
+    <div class="intro-text">
+      <h1>Sungwon Yang</h1>
+      <p class="affil">M.S. student, KAIST &middot; Unmanned Systems Research Group (USRG)</p>
+      <p>
+        I work on learning-based legged locomotion and sim-to-real transfer.
+        At KAIST, advised by Prof. David Hyunchul Shim, I built the full pipeline for the
+        Unitree Go2 quadruped on my own, from reinforcement learning in simulation to
+        deployment on the real robot.
+      </p>
+      <p>
+        I received my B.S. in Computer Science from KAIST and was a research intern at the
+        <a href="https://mlml.kaist.ac.kr/">Machine Learning and Mind Lab</a> with Prof. Sungjin Ahn.
+        I am applying to Ph.D. programs for Fall 2027.
+      </p>
+      <p class="links">
+        <a href="mailto:yyang3314@kaist.ac.kr">Email</a>
+        <a href="cv.pdf">CV</a>
+        <a href="https://github.com/swy99">GitHub</a>
+      </p>
+    </div>
+    <img class="photo" src="images/profile.jpg" alt="Photo of Sungwon Yang" width="413" height="531">
+  </header>
+
+  <h2>Research Interests</h2>
+  <p>
+    Legged locomotion, reinforcement learning, sim-to-real transfer, and real-world
+    fine-tuning and continual adaptation of learned controllers.
+  </p>
+
+  <h2>Research</h2>
+
+  <article class="project text-only">
+    <div>
+      <h3>Friction-aware quadrupedal locomotion under external forces</h3>
+      <p class="meta">Sungwon Yang, David Hyunchul Shim &middot; manuscript in preparation</p>
+    </div>
+  </article>
+
+  <article class="project">
+    <div class="media">
+      <iframe src="https://www.youtube-nocookie.com/embed/VR4S4SszCUg" title="Quadruped Robot Climbing Stairs Without Vision" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <div>
+      <h3>Climbing Stairs Without Vision</h3>
+      <p class="meta">Real-robot deployment on the Unitree Go2</p>
+      <p>
+        A proprioception-only policy that climbs stairs without cameras or LiDAR.
+        It was warm-started from a TARLoco policy and fine-tuned with additional domain
+        randomization and compliant terrain to transfer to the real robot.
+      </p>
+    </div>
+  </article>
+
+  <article class="project">
+    <div class="media">
+      <iframe src="https://www.youtube-nocookie.com/embed/wGCxth3PZbg" title="Adjustable Force Response in a Quadruped Robot" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <div>
+      <h3>Adjustable Force Response</h3>
+      <p class="meta">Real-robot deployment on the Unitree Go2</p>
+      <p>
+        A policy that takes a force budget along with the velocity command.
+        With a zero budget the robot yields to an external pull; with a positive budget
+        it pulls a load forward.
+      </p>
+    </div>
+  </article>
+
+  <article class="project text-only">
+    <div>
+      <h3>End-to-End Sim-to-Real Pipeline for the Unitree Go2</h3>
+      <p>
+        Policy training in Isaac Lab (PhysX and Newton), software-in-the-loop sim-to-sim
+        validation in MuJoCo that runs the same C++/ONNX deployment stack over DDS, and
+        on-board deployment on an NVIDIA Jetson. While tracing sim-to-sim failures, I found
+        an IMU frame defined at the center of mass instead of the body frame, and that
+        Isaac Lab's Go2 model ignores the knee gear ratio (about 1.92), which I reported
+        upstream (<a href="https://github.com/isaac-sim/IsaacLab/issues/7479">isaac-sim/IsaacLab#7479</a>).
+      </p>
+    </div>
+  </article>
+
+  <h2>Earlier Experience</h2>
+  <ul class="items">
+    <li>
+      <strong>Research intern, Machine Learning and Mind Lab (MLML), KAIST</strong>
+      <span class="when">&middot; Jun&ndash;Aug 2023</span><br>
+      Ported the MuJoCo Maze environment to the Choreographer codebase, added discrete-action
+      support, and built a visualization tool for the world model's imagined states.
+    </li>
+    <li>
+      <strong>Neural Fictitious Self-Play, independent research</strong>
+      <span class="when">&middot; 2025</span><br>
+      Improved the sample efficiency of NFSP on Leduc Hold'em by about 30% with GRU and
+      Transformer encoders over cards, position, and action history.
+    </li>
+    <li>
+      <strong>3rd Place, Chief of Naval Operations Award, Military AI Contest (MAICON) 2024</strong><br>
+      Built the friend-or-foe detector (YOLOv11n with TensorRT) for an autonomous tank,
+      competing while serving in the Republic of Korea Army.
+    </li>
+  </ul>
+
+  <footer>Last updated November 2026</footer>
+
+</main>
+</body>
+</html>
