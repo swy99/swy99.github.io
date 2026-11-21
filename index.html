@@ -101,6 +101,7 @@
         <a href="mailto:yyang3314@kaist.ac.kr">Email</a>
         <a href="cv.pdf">CV</a>
         <a href="https://github.com/swy99">GitHub</a>
+        <a href="https://www.linkedin.com/in/sungwon-yang-40226925a/">LinkedIn</a>
       </p>
     </div>
     <img class="photo" src="images/profile.jpg" alt="Photo of Sungwon Yang" width="413" height="531">
@@ -130,8 +131,9 @@
       <p class="meta">Real-robot deployment on the Unitree Go2</p>
       <p>
         A proprioception-only policy that climbs stairs without cameras or LiDAR.
-        It was warm-started from a TARLoco policy and fine-tuned with additional domain
-        randomization and compliant terrain to transfer to the real robot.
+        I reproduced TARLoco (IROS 2025) on the Go2, resolving gaps between the paper and
+        its code, and fine-tuned it in stages with robot-level domain randomization,
+        compliant terrain, and measured actuation latency to transfer to the real robot.
       </p>
     </div>
   </article>
@@ -144,9 +146,11 @@
       <h3>Adjustable Force Response</h3>
       <p class="meta">Real-robot deployment on the Unitree Go2</p>
       <p>
-        A policy that takes a force budget along with the velocity command.
-        With a zero budget the robot yields to an external pull; with a positive budget
-        it pulls a load forward.
+        A policy that takes a force budget along with the velocity command; its reference
+        never asks for more ground force than the budget. In simulation it cut falls on
+        slippery starts from 138 to 10&ndash;35 of 192 trials compared with velocity tracking.
+        On the real robot, a zero budget makes it yield to an external pull, and a positive
+        budget makes it pull a load forward.
       </p>
     </div>
   </article>
@@ -161,6 +165,36 @@
         an IMU frame defined at the center of mass instead of the body frame, and that
         Isaac Lab's Go2 model ignores the knee gear ratio (about 1.92), which I reported
         upstream (<a href="https://github.com/isaac-sim/IsaacLab/issues/7479">isaac-sim/IsaacLab#7479</a>).
+      </p>
+    </div>
+  </article>
+
+  <article class="project">
+    <div class="media">
+      <iframe src="https://www.youtube-nocookie.com/embed/f0DEdX9MNLI" title="Autonomous Exploration on the Unitree Go2" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <div>
+      <h3>Autonomous Exploration on the Unitree Go2</h3>
+      <p class="meta">Real-robot deployment on the Unitree Go2</p>
+      <p>
+        I built the Go2's ROS&nbsp;1 software stack (DDS-to-ROS sensor bridges, layered sensing,
+        planning, control, and SLAM nodes, and joystick switching among sport, RL, and
+        exploration modes), mounted a Livox MID-360 LiDAR with DLIO LiDAR-inertial odometry,
+        and ported a frontier-exploration stack written for wheeled robots to the quadruped
+        through adapter nodes. The first autonomous exploration run was in July 2026.
+      </p>
+    </div>
+  </article>
+
+  <article class="project text-only">
+    <div>
+      <h3>Simulator Data Pipeline for End-to-End Driving</h3>
+      <p class="meta">Lab project with the MORAI driving simulator</p>
+      <p>
+        I owned data acquisition and validation: the episode data schema, the pipeline from
+        simulator capture to automatic segmentation and validation, and visualization and
+        analysis tools. I also diagnosed simulator issues with measurements, such as a VRAM
+        leak and frame timing offsets, and reported them to the vendor.
       </p>
     </div>
   </article>
