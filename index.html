@@ -89,8 +89,8 @@
         I work on learning-based legged locomotion and sim-to-real transfer.
         In the <a href="https://unmanned.kaist.ac.kr/">Unmanned Systems Research Group (USRG)</a>
         at KAIST, advised by Prof. David Hyunchul Shim, I built the full pipeline for the
-        Unitree Go2 quadruped on my own, from reinforcement learning in simulation to
-        deployment on the real robot.
+        Unitree Go2 quadruped as the sole developer, working with AI coding agents, from
+        reinforcement learning in simulation to deployment on the real robot.
       </p>
       <p>
         I received my B.S. in Computer Science from KAIST and was a research intern at the
@@ -147,9 +147,7 @@
       <p class="meta">Real-robot deployment on the Unitree Go2</p>
       <p>
         A policy that takes a force budget along with the velocity command; its reference
-        never asks for more ground force than the budget. In simulation it cut falls on
-        slippery starts from 138 to 10&ndash;35 of 192 trials compared with velocity tracking.
-        On the real robot, a zero budget makes it yield to an external pull, and a positive
+        never asks for more ground force than the budget. On the real robot, a zero budget makes it yield to an external pull, and a positive
         budget makes it pull a load forward.
       </p>
     </div>
@@ -166,9 +164,10 @@
         Policy training in Isaac Lab (PhysX and Newton), software-in-the-loop sim-to-sim
         validation in MuJoCo that runs the same C++/ONNX deployment stack over DDS, and
         on-board deployment on an NVIDIA Jetson. While tracing sim-to-sim failures, I found
-        an IMU frame defined at the center of mass instead of the body frame, and that
-        Isaac Lab's Go2 model ignores the knee gear ratio (about 1.92), which I reported
-        upstream (<a href="https://github.com/isaac-sim/IsaacLab/issues/7479">isaac-sim/IsaacLab#7479</a>).
+        an IMU-frame bug in my MuJoCo bridge and that Isaac Lab's Go2 model ignored the knee
+        gear ratio (about 1.92); I reported it upstream
+        (<a href="https://github.com/isaac-sim/IsaacLab/issues/7479">isaac-sim/IsaacLab#7479</a>),
+        and it has since been fixed.
       </p>
     </div>
   </article>
@@ -195,9 +194,9 @@
       <h3>Simulator Data Pipeline for End-to-End Driving</h3>
       <p class="meta">Lab project with the MORAI driving simulator</p>
       <p>
-        I owned data acquisition and validation: the episode data schema, the pipeline from
-        simulator capture to automatic segmentation and validation, and visualization and
-        analysis tools. I also diagnosed simulator issues with measurements, such as a VRAM
+        I owned data acquisition and validation: formalizing and implementing the team's
+        episode data schema, building the pipeline from simulator capture to automatic
+        segmentation and validation, and developing visualization and analysis tools. I also diagnosed simulator issues with measurements, such as a VRAM
         leak and frame timing offsets, and reported them to the vendor.
       </p>
     </div>
